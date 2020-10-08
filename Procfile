@@ -1,1 +1,1 @@
-web: bin/mimo
+web: bin/server

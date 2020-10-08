@@ -434,9 +434,6 @@ func (service *mimoService) tokenBalancesInPastNDays(exchanges []string, days ui
 }
 
 func (service *mimoService) volumes(exchanges []string, duration time.Duration) (map[string]*big.Int, error) {
-	if len(exchanges) == 0 {
-		return nil, nil
-	}
 	args := make([]interface{}, len(exchanges)+1)
 	args[0] = time.Now().UTC().Add(-duration).String()
 	questionMarks := make([]string, len(exchanges))
@@ -444,13 +441,17 @@ func (service *mimoService) volumes(exchanges []string, duration time.Duration) 
 		args[i+1] = exchange
 		questionMarks[i] = "?"
 	}
+	exchangeCondition := ""
+	if len(exchanges) > 0 {
+		exchangeCondition = " AND t.exchange in (" + strings.Join(questionMarks, ",") + ")"
+	}
 
 	rows, err := service.store.GetDB().Query(
 		"SELECT t.exchange, SUM(t.iotx_amount) v "+
 			"FROM `"+mimoprotocol.ExchangeActionTableName+"` t "+
 			"INNER JOIN `"+blockinfo.TableName+"` bi "+
 			"ON bi.block_height = t.block_height "+
-			"WHERE bi.timestamp >= ? AND t.exchange in ("+strings.Join(questionMarks, ",")+") AND t.type in ("+mimoprotocol.JoinTopicsWithQuotes(mimoprotocol.CoinPurchase, mimoprotocol.TokenPurchase)+") "+
+			"WHERE bi.timestamp >= ?"+exchangeCondition+" AND t.type in ("+mimoprotocol.JoinTopicsWithQuotes(mimoprotocol.CoinPurchase, mimoprotocol.TokenPurchase)+") "+
 			"GROUP BY t.exchange",
 		args...,
 	)

@@ -9,15 +9,26 @@ package indexprotocol
 import (
 	"context"
 	"database/sql"
+
+	"github.com/iotexproject/iotex-core/blockchain/block"
+	"github.com/iotexproject/iotex-proto/golang/iotextypes"
 )
 
-// ProtocolV2 defines the protocol interfaces for block indexer
-type ProtocolV2 interface {
-	BlockDataHandler
-	Initialize(context.Context, *sql.Tx) error
-}
+type (
+	// BlockData defines the block data of a specific height
+	BlockData struct {
+		Block           *block.Block
+		TransactionLogs []*iotextypes.TransactionLog
+	}
 
-// BlockDataHandler is the interface of handling block data
-type BlockDataHandler interface {
-	HandleBlockData(context.Context, *sql.Tx, *BlockData) error
-}
+	// ProtocolV2 defines the protocol interfaces for block indexer
+	ProtocolV2 interface {
+		BlockDataHandler
+		Initialize(context.Context, *sql.Tx) error
+	}
+
+	// BlockDataHandler is the interface of handling block data
+	BlockDataHandler interface {
+		HandleBlockData(context.Context, *sql.Tx, *BlockData) error
+	}
+)
