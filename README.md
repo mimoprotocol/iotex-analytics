@@ -1,7 +1,4 @@
-<p align="center">
-  <img src="https://github.com/iotexproject/iotex-analytics/blob/master/analytics.png" width="480px">
-</p>
-
+# mimo analytics
 
 The independent service that analyzes data from IoTeX blockchain
 
