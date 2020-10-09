@@ -10,7 +10,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/iotexproject/iotex-analytics/indexprotocol"
+	"github.com/mimoprotocol/mimo-analytics/indexprotocol"
 )
 
 const (

@@ -25,11 +25,11 @@ import (
 	"github.com/iotexproject/iotex-core/pkg/log"
 	"github.com/iotexproject/iotex-proto/golang/iotexapi"
 
-	"github.com/iotexproject/iotex-analytics/indexprotocol"
-	"github.com/iotexproject/iotex-analytics/indexprotocol/blockinfo"
-	mimoprotocol "github.com/iotexproject/iotex-analytics/indexprotocol/mimo"
-	"github.com/iotexproject/iotex-analytics/services"
-	s "github.com/iotexproject/iotex-analytics/sql"
+	"github.com/mimoprotocol/mimo-analytics/indexprotocol"
+	"github.com/mimoprotocol/mimo-analytics/indexprotocol/blockinfo"
+	mimoprotocol "github.com/mimoprotocol/mimo-analytics/indexprotocol/mimo"
+	"github.com/mimoprotocol/mimo-analytics/services"
+	s "github.com/mimoprotocol/mimo-analytics/sql"
 )
 
 var (
@@ -339,7 +339,7 @@ func (service *mimoService) volumesInPastNDays(exchanges []string, days uint8) (
 			"FROM `"+mimoprotocol.ExchangeActionTableName+"` t "+
 			"INNER JOIN `"+blockinfo.TableName+"` bi "+
 			"ON bi.block_height = t.block_height "+
-			"WHERE bi.timestamp >= ?"+exchangeCondition+" AND t.type in ("+mimoprotocol.JoinTopicsWithQuotes(mimoprotocol.AddLiquidity, mimoprotocol.RemoveLiquidity)+") "+
+			"WHERE bi.timestamp >= ?"+exchangeCondition+" AND t.type in ("+mimoprotocol.JoinTopicsWithQuotes(mimoprotocol.CoinPurchase, mimoprotocol.TokenPurchase)+") "+
 			"GROUP BY d "+
 			"ORDER BY d",
 		args...,

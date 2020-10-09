@@ -11,7 +11,7 @@ import (
 	"math/big"
 	"time"
 
-	mimoprotocol "github.com/iotexproject/iotex-analytics/indexprotocol/mimo"
+	mimoprotocol "github.com/mimoprotocol/mimo-analytics/indexprotocol/mimo"
 	"github.com/pkg/errors"
 ) // THIS CODE IS A STARTING POINT ONLY. IT WILL NOT BE UPDATED WITH SCHEMA CHANGES.
 const (

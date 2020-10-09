@@ -9,7 +9,7 @@ package sql
 import (
 	"testing"
 
-	"github.com/iotexproject/iotex-analytics/testutil"
+	"github.com/mimoprotocol/mimo-analytics/testutil"
 )
 
 const (

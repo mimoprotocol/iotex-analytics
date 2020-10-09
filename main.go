@@ -24,8 +24,8 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 
-	"github.com/iotexproject/iotex-analytics/services/mimo"
-	"github.com/iotexproject/iotex-analytics/sql"
+	"github.com/mimoprotocol/mimo-analytics/services/mimo"
+	"github.com/mimoprotocol/mimo-analytics/sql"
 )
 
 const defaultPort = "8089"

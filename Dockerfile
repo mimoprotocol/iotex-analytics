@@ -1,6 +1,6 @@
 FROM golang:1.13.4-stretch
 
-WORKDIR apps/iotex-analytics/
+WORKDIR apps/mimo-analytics/
 
 RUN apt-get install -y --no-install-recommends make
 
@@ -16,6 +16,6 @@ RUN rm -rf ./bin/server && \
     cp ./bin/server /usr/local/bin/iotex-server  && \
     mkdir -p /etc/iotex/ && \
     cp config.yaml /etc/iotex/config.yaml && \
-    rm -rf apps/iotex-analytics/
+    rm -rf apps/mimo-analytics/
 
 CMD [ "iotex-server"]

@@ -17,8 +17,8 @@ import (
 	"github.com/iotexproject/iotex-address/address"
 	"github.com/pkg/errors"
 
-	"github.com/iotexproject/iotex-analytics/indexprotocol"
-	"github.com/iotexproject/iotex-analytics/services"
+	"github.com/mimoprotocol/mimo-analytics/indexprotocol"
+	"github.com/mimoprotocol/mimo-analytics/services"
 )
 
 const (

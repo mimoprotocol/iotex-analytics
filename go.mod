@@ -1,14 +1,12 @@
-module github.com/iotexproject/iotex-analytics
+module github.com/mimoprotocol/mimo-analytics
 
 go 1.14
 
 require (
 	github.com/99designs/gqlgen v0.8.3
 	github.com/agnivade/levenshtein v1.0.2 // indirect
-	github.com/cenkalti/backoff v2.2.1+incompatible
 	github.com/ethereum/go-ethereum v1.8.27
 	github.com/go-sql-driver/mysql v1.4.1
-	github.com/golang/mock v1.4.4
 	github.com/golang/protobuf v1.4.2
 	github.com/iotexproject/go-pkgs v0.1.2-0.20200523040337-5f1d9ddaa8ee
 	github.com/iotexproject/iotex-address v0.2.2
@@ -23,11 +21,9 @@ require (
 	github.com/vektah/gqlparser v1.1.2
 	go.opencensus.io v0.22.0 // indirect
 	go.uber.org/zap v1.10.0
-	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e
 	golang.org/x/tools v0.0.0-20200318150045-ba25ddc85566 // indirect
 	google.golang.org/appengine v1.6.0 // indirect
 	google.golang.org/grpc v1.27.0
-	gopkg.in/yaml.v2 v2.2.4
 )
 
 replace github.com/ethereum/go-ethereum => github.com/iotexproject/go-ethereum v0.3.0
