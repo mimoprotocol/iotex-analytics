@@ -49,7 +49,7 @@ func ReadContract(cli iotexapi.APIServiceClient, addr string, callData []byte) (
 		return nil, err
 	}
 	if res.Receipt.Status != uint64(1) {
-		return nil, errors.New("failed to read contract")
+		return nil, errors.Wrap(ErrUnimplemented, "failed to read contract")
 	}
 	return hex.DecodeString(res.Data)
 }
